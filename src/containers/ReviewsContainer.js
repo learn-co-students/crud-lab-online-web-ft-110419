@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 class ReviewsContainer extends Component {
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div>
         <ReviewInput restaurant={this.props.restaurant} addReview={this.props.addReview}/>
