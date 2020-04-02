@@ -11,7 +11,6 @@ class Restaurants extends Component {
     return(
       <ul>
         {this.props.restaurants.map(restaurant => < Restaurant restaurant={restaurant} delete={this.props.deleteRestaurant}/>)}
-        Restaurants Component
       </ul>
     );
   }
