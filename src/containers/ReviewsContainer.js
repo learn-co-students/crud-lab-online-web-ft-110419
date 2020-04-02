@@ -8,10 +8,9 @@ import { connect } from 'react-redux'
 class ReviewsContainer extends Component {
 
   render() {
-    // console.log(this.props)
     return (
       <div>
-        <ReviewInput restaurant={this.props.restaurant} addReview={this.props.addReview}/>
+        <ReviewInput restaurantId={this.props.restaurant.id} addReview={this.props.addReview}/>
         <Reviews reviews={this.props.state.reviews} restaurant={this.props.restaurant}/>
       </div>
     )
@@ -24,6 +23,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   addReview: (review) => dispatch({ type: "ADD_REVIEW", review })
+
 })
 
 export default connect (mapStateToProps, mapDispatchToProps)(ReviewsContainer)

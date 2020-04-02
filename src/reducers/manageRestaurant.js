@@ -12,7 +12,7 @@ export default function manageRestaurants(state = {restaurants: [], reviews: []}
             return { restaurants: state.restaurants.concat(restaurant), reviews: state.reviews }
 
         case 'DELETE_RESTAURANT':
-            // console.log("inside delete switch on reducer")
+            console.log("inside delete switch on reducer")
             // console.log(action)
             // return {restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id), reviews: state.reviews}
             return {restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id), reviews: state.reviews.filter(review => review.restaurantId !== action.id)}

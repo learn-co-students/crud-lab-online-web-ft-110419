@@ -121,9 +121,9 @@ describe('Restaurant Component with Redux', () => {
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Bagel World'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>)
-
+    // let firstButton = wrapper.find('button').first()
     let deleteButton = wrapper.find('button').first();
-
+console.log(deleteButton)
     deleteButton.simulate('click',  { preventDefault() {} });
 
     expect(store.getState().restaurants.length).to.equal(0);
