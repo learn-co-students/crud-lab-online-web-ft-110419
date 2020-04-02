@@ -12,14 +12,11 @@ class Restaurant extends Component {
     // const { restaurant } = this.props;
 
     return (
-      <div>
-        <li key={this.props.restaurant.id}>
+        <li>
           {this.props.restaurant.text}
           <ReviewsContainer restaurant={this.props.restaurant}/>
           <button onClick={() => this.props.delete(this.props.restaurant.id)}> X </button>
-
         </li>
-      </div>
     );
   }
 };
