@@ -4,7 +4,7 @@ class Review extends Component {
   state = {
     id: this.props.review.id,
     text: this.props.review.text,
-    update: false
+    update: false,
   };
 
   handleDelete = () => {
@@ -12,20 +12,20 @@ class Review extends Component {
   };
 
   handleUpdate = () => {
-    this.setState(preState => {
+    this.setState((preState) => {
       return {
-        update: !preState.update
+        update: !preState.update,
       };
     });
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
-      text: e.target.value
+      text: e.target.value,
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.updateReview(this.state);
     this.handleUpdate();
@@ -40,7 +40,7 @@ class Review extends Component {
             type="text"
             value={this.state.text}
           />
-          <button>submit</button>
+          <input type="submit" />
         </form>
       );
     } else {
@@ -48,7 +48,7 @@ class Review extends Component {
         <span>
           {this.props.review.text}
           <button onClick={this.handleDelete}>X</button>
-          <button onClick={this.handleUpdate}>update</button>
+          {/* <input onClick={this.handleUpdate}>update</button> */}
         </span>
       );
     }

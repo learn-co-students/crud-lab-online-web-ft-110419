@@ -3,17 +3,19 @@ import React, { Component } from "react";
 
 class ReviewInput extends Component {
   state = {
-    restaurantId: this.props.restaurant.id,
-    text: ""
+    text: "",
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({ text: e.target.value });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addReview(this.state);
+    this.props.addReview({
+      restaurantId: this.props.restaurantId,
+      text: this.state.text,
+    });
     this.setState({ text: "" });
   };
 
@@ -24,8 +26,6 @@ class ReviewInput extends Component {
           <input
             onChange={this.handleChange}
             type="text"
-            name="text"
-            id="text"
             value={this.state.text}
           />
           <input type="Submit" />
