@@ -22,9 +22,9 @@ class ReviewsContainer extends Component {
   }
 }
 
-const myState = ({ reviews }) => ({ reviews });
+const mapStateToProps = ({ reviews }) => ({ reviews });
 
-const myDispatch = dispatch => {
+const mapDispatchToProps = dispatch => {
   return {
     addReview: review => dispatch({ type: "ADD_REVIEW", review }),
     deleteReview: id => dispatch({ type: "DELETE_REVIEW", id }),
@@ -32,4 +32,4 @@ const myDispatch = dispatch => {
   };
 };
 
-export default connect(myState, myDispatch)(ReviewsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer);

@@ -42,6 +42,19 @@ export default function manageRestaurants(state = initState, action) {
         reviews: state.reviews.filter(review => review.id !== action.id)
       };
 
+    case "UPDATE_REVIEW":
+      const reviews = state.reviews.map(review => {
+        if (review.id === action.review.id) {
+          review.text = action.review.text;
+        }
+        return review;
+      });
+
+      return {
+        ...state,
+        reviews: reviews
+      };
+
     default:
       return state;
   }

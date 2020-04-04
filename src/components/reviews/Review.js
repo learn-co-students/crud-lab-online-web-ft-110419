@@ -2,23 +2,60 @@ import React, { Component } from "react";
 
 class Review extends Component {
   state = {
-    text: this.props.review.text
+    id: this.props.review.id,
+    text: this.props.review.text,
+    update: false
   };
 
-  handleUpdate = e => {
-    console.log(e.target.outerHTML);
+  handleDelete = () => {
+    this.props.deleteReview(this.props.review.id);
+  };
+
+  handleUpdate = () => {
+    this.setState(preState => {
+      return {
+        update: !preState.update
+      };
+    });
+  };
+
+  handleChange = e => {
+    this.setState({
+      text: e.target.value
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.updateReview(this.state);
+    this.handleUpdate();
+  };
+
+  renderReview = () => {
+    if (this.state.update) {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <input
+            onChange={this.handleChange}
+            type="text"
+            value={this.state.text}
+          />
+          <button>submit</button>
+        </form>
+      );
+    } else {
+      return (
+        <span>
+          {this.props.review.text}
+          <button onClick={this.handleDelete}>X</button>
+          <button onClick={this.handleUpdate}>update</button>
+        </span>
+      );
+    }
   };
 
   render() {
-    return (
-      <li>
-        <span> {this.props.review.text} </span>
-        <button onClick={() => this.props.deleteReview(this.props.review.id)}>
-          X
-        </button>
-        <button onClick={this.handleUpdate}>update</button>
-      </li>
-    );
+    return <li>{this.renderReview()}</li>;
   }
 }
 
