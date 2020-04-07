@@ -2,23 +2,14 @@ import React, { Component } from 'react';
 import Review from './Review';
 
 class Reviews extends Component {
-  showReview() {
-    const { reviews, restaurant } = this.props;
-    // debugger
-    if (reviews){
-      return reviews.filter(r => r.restaurantId === restaurant.id)
-    } else {
-      return null
-    }
-  }
+
+  filterReviews = () => this.props.reviews.filter(r => r.restaurantId === this.props.restaurantId)
 
   render() {
-    // debugger
-    if (this.props.reviews){
-    return (
+    return(
       <div>
         <ul>
-          {this.showReview().map(r => 
+          {this.filterReviews().map(r => 
             <Review 
             key={r.id}
             review={r}
@@ -28,9 +19,6 @@ class Reviews extends Component {
         </ul>
       </div>
           );
-    } else {
-      return null; 
-    }
   }
 
 };

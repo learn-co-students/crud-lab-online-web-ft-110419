@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 class ReviewsContainer extends Component {
 
-  // need conditional render
   render() {
     return (
       <div>

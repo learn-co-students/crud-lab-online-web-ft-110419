@@ -3,9 +3,13 @@ import RestaurantInput from '../components/restaurants/RestaurantInput'
 import Restaurants from '../components/restaurants/Restaurants'
 import { connect } from 'react-redux';
 
+import {addRestaurant} from "../actions"
+
 class RestaurantsContainer extends Component {
 
   render() {
+    console.log(this.props);
+    
     return (
       <div>
         <RestaurantInput addRestaurant={this.props.addRestaurant }/>
@@ -15,7 +19,10 @@ class RestaurantsContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({ restaurants: state.restaurants })
+const mapStateToProps = state => {
+  //debugger
+  return { restaurants: state.restaurants }
+}
 
 
 const mapDispatchToProps = dispatch => ({
