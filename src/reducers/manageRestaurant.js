@@ -30,17 +30,7 @@ reviews: []}
 
           let reviews = state.reviews.filter(u => u.id !== action.id)
           return {...state,reviews,}
-     case "UPDATE_REVIEW":
-        // const reviews = state.reviews.map((review) => {
-        // // if (review.id === action.review.id) {
-        // //     review.text = action.review.text;
-        // // }
-        // return review;
-        //  });
-        // return {
-        //       ...state,
-        //       reviews: reviews,
-        //     };
+
         default:
             return state
     }
