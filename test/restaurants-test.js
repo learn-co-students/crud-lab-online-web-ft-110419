@@ -52,9 +52,9 @@ describe('Restaurants Component', () => {
   it('displays a list of restaurant components', () => {
 
     const store = createStore(manageRestaurant)
-    store.dispatch({type: 'ADD_RESTAURANT', text: "Muzarella"})
-    store.dispatch({type: 'ADD_RESTAURANT', text: "Artichoke"})
-    store.dispatch({type: 'ADD_RESTAURANT', text: "Two Brothers"})
+    store.dispatch({type: 'ADD_RESTAURANT', restaurant: {text: "Muzarella", reviews: []}})
+    store.dispatch({type: 'ADD_RESTAURANT', restaurant: {text: "Artichoke", reviews: []}})
+    store.dispatch({type: 'ADD_RESTAURANT', restaurant: {text: "Two Brothers", reviews: []}})
     const wrapper = mount(<Provider store={store}><App /></Provider>)
     expect(wrapper.find(Restaurant)).to.have.length(3);
   });
@@ -118,7 +118,7 @@ describe('Restaurant Component with Redux', () => {
 
   it('has a button that dispatches a DELETE_RESTAURANT action with the proper id when clicked', ()=> {
     const store = createStore(manageRestaurant);
-    store.dispatch({type: 'ADD_RESTAURANT', text: 'Bagel World'})
+    store.dispatch({type: 'ADD_RESTAURANT', restaurant: {text: 'Bagel World', reviews: []}})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>)
 
