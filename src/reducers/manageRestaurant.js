@@ -22,10 +22,11 @@ export default function manageRestaurants(state = {
             }
 
         case "ADD_REVIEW":
+            debugger
             const newReview = {
                 id: cuidFn(),
-                rev: action.rev.text,
-                restaurantId: action.rev.restaurantId
+                text: action.review.text,
+                restaurantId: action.review.restaurantId
             }
             return {
                 ...state, reviews: [...state.reviews, newReview]

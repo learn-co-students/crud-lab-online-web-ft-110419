@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Reviews from './Reviews';
 
 class ReviewInput extends Component {
   state = {
@@ -26,11 +25,10 @@ class ReviewInput extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={e => this.handleSubmit(e)}>
           <input onChange={e => this.handleChange(e)} value={this.state.text} />
           <input type="submit" value="Submit" />
         </form>
-        Review Input
       </div>
     );
   }

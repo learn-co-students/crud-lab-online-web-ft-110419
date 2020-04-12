@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 class ReviewsContainer extends Component {
 
   render() {
-    debugger
     return (
       <div>
         <ReviewInput addReview={this.props.addReview} restaurantId={this.props.restaurant.id} />
@@ -18,6 +17,7 @@ class ReviewsContainer extends Component {
 }
 
 const mSTP = state => {
+  debugger
   return {
     reviews: state.reviews
   }
