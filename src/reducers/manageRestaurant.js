@@ -10,25 +10,25 @@ export default function manageRestaurants(state = {restaurants: [], reviews: []}
                   id: cuid(),
                   text: action.text
               }
-              return { ...state, restaurants: [...state.restaurants, restaurant], reviews: [...state.reviews] }
+              return { ...state, restaurants: [...state.restaurants, restaurant]}
 
         case 'DELETE_RESTAURANT':
 
-            return {...state, restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id), reviews: [...state.reviews]}
+            return {...state, restaurants: state.restaurants.filter(restaurant => restaurant.id !== action.id)}
 
         case 'ADD_REVIEW':
 
             const review = {
                 id: cuid(),
-                text: action.text,
-                restaurantId: action.restaurantId
+                text: action.review.text,
+                restaurantId: action.review.restaurantId
             }
 
-            return {...state, restaurants: [...state.restaurants], reviews: [...state.reviews, review]}
+            return {...state, reviews: [...state.reviews, review]}
 
         case 'DELETE_REVIEW':
 
-            return {...state, restaurants: [...state.restaurants], reviews: state.reviews.filter(review => review.id !== action.reviewId)}
+            return {...state, reviews: state.reviews.filter(review => review.id !== action.reviewId)}
 
         default:
             return state

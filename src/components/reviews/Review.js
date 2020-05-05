@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 class Review extends Component {
 
@@ -16,10 +15,4 @@ class Review extends Component {
   }
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteReview: (reviewId) => {dispatch({type: 'DELETE_REVIEW', reviewId: reviewId})}
-  }
-}
-
-export default connect(null, mapDispatchToProps)(Review);
+export default Review;
